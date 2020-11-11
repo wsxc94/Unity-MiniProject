@@ -12,7 +12,7 @@ public class EnemyMove : MonoBehaviour
     {
         transform.Translate(- (Vector3.forward * speed * Time.deltaTime));
 
-        if(transform.position.z <= -15f)
+        if(transform.position.z <= -Camera.main.orthographicSize)
         {
             Destroy(gameObject);
         }
