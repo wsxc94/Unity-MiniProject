@@ -23,7 +23,6 @@ public class PlayerFire : MonoBehaviour
         if (Input.GetButtonDown("Fire1"))
         {
             GameObject bullet = Instantiate(bulletFactory);
-            //bullet.transform.position = transform.position;
             bullet.transform.position = firePoint.position;
         }
     }

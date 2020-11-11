@@ -6,6 +6,7 @@ public class EnemyFire : MonoBehaviour
 {
     public GameObject bulletFactory;
     public Transform firePoint;
+    public float delay = 1f;
 
     private void OnEnable()
     {
@@ -17,9 +18,8 @@ public class EnemyFire : MonoBehaviour
         while (true)
         {
            GameObject bullet = Instantiate(bulletFactory);
-           //bullet.transform.position = transform.position;
            bullet.transform.position = firePoint.position;
-           yield return new WaitForSeconds(0.3f);
+           yield return new WaitForSeconds(delay);
         }
 
         

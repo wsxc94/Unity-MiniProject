@@ -5,8 +5,12 @@ using UnityEngine;
 public class SpawnManager : MonoBehaviour
 {
     public GameObject[] plane;
-    bool isActive = true;
+    public GameObject enemyFactory;
 
+    void Start()
+    {
+        StartCoroutine(EnemySpawn());
+    }
     // Update is called once per frame
     void Update()
     {
@@ -17,25 +21,30 @@ public class SpawnManager : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            
-           if (isActive)
+
+            for (int i = 0; i < plane.Length; i++)
             {
-                for (int i = 0; i < 2; i++)
+                if(plane[i].activeSelf)
                 {
                     plane[i].SetActive(false);
-                    isActive = false;
                 }
-            }
-           else
-            {
-                for (int i = 0; i < 2; i++)
+                else
                 {
                     plane[i].SetActive(true);
-                    isActive = true;
                 }
             }
-
             
+        }
+    }
+
+    IEnumerator EnemySpawn()
+    {
+        while (true)
+        {
+        GameObject enemy = Instantiate(enemyFactory);
+        enemy.transform.position = new Vector3(Random.Range(-7.0f, 7.0f), 5.0f, 15.0f);
+        yield return new WaitForSeconds(1.0f);
+
         }
     }
 }
