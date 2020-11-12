@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class SpawnManager : MonoBehaviour
 {
-    public GameObject[] plane;
+    public GameObject[] mini;
     public GameObject enemyFactory;
 
     void Start()
@@ -22,15 +22,15 @@ public class SpawnManager : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space))
         {
 
-            for (int i = 0; i < plane.Length; i++)
+            for (int i = 0; i < mini.Length; i++)
             {
-                if(plane[i].activeSelf)
+                if(mini[i].activeSelf)
                 {
-                    plane[i].SetActive(false);
+                    mini[i].SetActive(false);
                 }
                 else
                 {
-                    plane[i].SetActive(true);
+                    mini[i].SetActive(true);
                 }
             }
             
