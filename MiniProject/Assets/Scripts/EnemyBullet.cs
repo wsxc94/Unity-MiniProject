@@ -20,6 +20,7 @@ public class EnemyBullet : MonoBehaviour
     void Update()
     {
         move();
+        if (target == null) Destroy(gameObject);
     }
 
     void move()

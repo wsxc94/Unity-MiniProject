@@ -15,6 +15,7 @@ public class EnemyFire : MonoBehaviour
 
     IEnumerator Attack()
     {
+        
         while (true)
         {
            GameObject bullet = Instantiate(bulletFactory);
