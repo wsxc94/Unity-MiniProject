@@ -37,11 +37,13 @@ public class BGMMgr : MonoBehaviour
         //오디오 소스 코드로 추가
         audioMain = gameObject.AddComponent<AudioSource>();
         audioSub = gameObject.AddComponent<AudioSource>();
+
         //오디오 소스 볼륨 0으로 초기화
         audioMain.volume = 0.0f;
         audioSub.volume = 0.0f;
 
         PlayBGM("Be_Higher");
+        audioMain.loop = true;
     }
 
     void Update()
@@ -67,7 +69,6 @@ public class BGMMgr : MonoBehaviour
                 }
             }
         }
-
         //볼륨조정
         audioMain.volume = volumeMain * masterVolume;
         audioSub.volume = volumeSub * masterVolume;
