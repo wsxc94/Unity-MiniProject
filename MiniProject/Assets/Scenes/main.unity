@@ -439,7 +439,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.5882353}
   m_RaycastTarget: 1
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -1641,7 +1641,7 @@ MonoBehaviour:
   rect_back: {fileID: 2072968684}
   rect_joystick: {fileID: 495224835}
   player: {fileID: 2190844020204650645}
-  moveSpeed: 10
+  moveSpeed: 5
 --- !u!114 &2072968686
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1655,7 +1655,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.26415092, g: 0.23175505, b: 0.23175505, a: 1}
+  m_Color: {r: 0.26415092, g: 0.23175505, b: 0.23175505, a: 0.5882353}
   m_RaycastTarget: 1
   m_Maskable: 1
   m_OnCullStateChanged:
