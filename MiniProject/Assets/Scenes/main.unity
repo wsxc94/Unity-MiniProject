@@ -1962,7 +1962,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e8abd6578234df14691f82d4207b1611, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 10
+  speed: 8
   margin: {x: 0, y: 0}
 --- !u!114 &2190844020204650648
 MonoBehaviour:
