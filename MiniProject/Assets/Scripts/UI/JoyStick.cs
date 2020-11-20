@@ -40,8 +40,6 @@ public class JoyStick : MonoBehaviour , IPointerDownHandler , IPointerUpHandler 
 
         float dis = Vector2.Distance(rect_back.position, rect_joystick.position) / radius;
 
-
-
         value = value.normalized;
 
         movePos = new Vector3(value.x * moveSpeed * dis * Time.deltaTime, 0f, value.y * moveSpeed * dis * Time.deltaTime);
