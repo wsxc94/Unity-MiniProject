@@ -9730,7 +9730,7 @@ ParticleSystem:
       serializedVersion: 2
       minMaxState: 0
       minColor: {r: 1, g: 1, b: 1, a: 1}
-      maxColor: {r: 0.4937346, g: 1, b: 0.4764151, a: 0.5019608}
+      maxColor: {r: 0.4937346, g: 1, b: 0.4764151, a: 1}
       maxGradient:
         serializedVersion: 2
         key0: {r: 1, g: 1, b: 1, a: 1}
@@ -10803,7 +10803,7 @@ ParticleSystem:
         m_RotationOrder: 4
     separateAxes: 0
   ColorModule:
-    enabled: 1
+    enabled: 0
     gradient:
       serializedVersion: 2
       minMaxState: 1
@@ -14277,7 +14277,7 @@ GameObject:
   - component: {fileID: 306558426926220686}
   - component: {fileID: 2165217106463383553}
   m_Layer: 0
-  m_Name: Magic fire 0
+  m_Name: Playerbullet
   m_TagString: bullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
