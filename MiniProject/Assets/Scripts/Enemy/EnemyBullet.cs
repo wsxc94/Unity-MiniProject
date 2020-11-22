@@ -34,7 +34,8 @@ public class EnemyBullet : MonoBehaviour
     {
         if(other.tag == "Player")
         {
-            Destroy(gameObject);
+            ObjectPool.Return_Ebullet(this);
+            //Destroy(gameObject);
             GameObject ef = Instantiate(effect);
             ef.transform.position = transform.position;
 
@@ -43,6 +44,7 @@ public class EnemyBullet : MonoBehaviour
 
     void OnBecameInvisible()
     {
-        Destroy(gameObject);
+        ObjectPool.Return_Ebullet(this);
+       // Destroy(gameObject);
     }
 }

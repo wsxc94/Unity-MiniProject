@@ -18,8 +18,12 @@ public class EnemyFire : MonoBehaviour
         
         while (true)
         {
-           GameObject bullet = Instantiate(bulletFactory);
-           bullet.transform.position = firePoint.position;
+            var bullet = ObjectPool.getEbullet();
+            bullet.transform.position = firePoint.position;
+            bullet.transform.rotation = Quaternion.identity;
+
+           //GameObject bullet = Instantiate(bulletFactory);
+           //bullet.transform.position = firePoint.position;
            yield return new WaitForSeconds(delay);
         }
 

@@ -15,7 +15,7 @@ public class miniFire : MonoBehaviour
 
 
     // Start is called before the first frame update
-    private void OnEnable()
+    private void Start()
     {
         StartCoroutine(Attack());
     }
@@ -29,8 +29,9 @@ public class miniFire : MonoBehaviour
     {
         while (true)
         {
-            GameObject bullet = Instantiate(bulletfactory);
+            var bullet = ObjectPool.getBullet();
             bullet.transform.position = firePoint.transform.position;
+            bullet.transform.rotation = Quaternion.identity;
             //bullet.transform.localScale = new Vector3(0.1f, 0.1f, 0.1f);
             yield return new WaitForSeconds(delay);
         }

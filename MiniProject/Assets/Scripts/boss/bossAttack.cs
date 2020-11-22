@@ -6,7 +6,7 @@ enum ATKPATTHON {ATK1,ATK2,ATK3 }
 
 public class bossAttack : MonoBehaviour
 {
-    public GameObject bulletFactory;
+    //public GameObject bulletFactory;
     public Transform firePoint;
     public float delay = 1f;
     public float angle { get; set; }
@@ -20,11 +20,19 @@ public class bossAttack : MonoBehaviour
     {
         time = 0;
         curATK = ATKPATTHON.ATK1;
+        //StartCoroutine(Attack());
+    }
+    private void Start()
+    {       
         StartCoroutine(Attack());
     }
-
     private void Update()
     {
+        if(Boss.Instance.isActive == false && gameObject.activeSelf == true)
+        {
+            StartCoroutine(Attack());
+            Boss.Instance.isActive = true;
+        }
         time += Time.deltaTime;
 
         if (time > 5)
@@ -79,7 +87,10 @@ public class bossAttack : MonoBehaviour
     {
         for (int i = 0; i < count.Length; i++)
         {
-            GameObject bullet = Instantiate(bulletFactory, firePoint.position, Quaternion.Euler(0f, (360 / 36) * count[i], 0f));
+            var bullet = ObjectPool.getBbullet();
+            bullet.transform.position = firePoint.position;
+            bullet.transform.rotation = Quaternion.Euler(0f, (360 / 36) * count[i], 0f);
+           // GameObject bullet = Instantiate(bulletFactory, firePoint.position, Quaternion.Euler(0f, (360 / 36) * count[i], 0f));
         }
 
         for (int i = 0; i < count.Length; i++)
@@ -95,8 +106,11 @@ public class bossAttack : MonoBehaviour
     {
         for (int i = 0; i < 36; i++)
         {
-            GameObject bullet = Instantiate(bulletFactory, firePoint.position, 
-                Quaternion.Euler(0f, (360 / 36) * i, 0f));
+            var bullet = ObjectPool.getBbullet();
+            bullet.transform.position = firePoint.position;
+            bullet.transform.rotation = Quaternion.Euler(0f, (360 / 36) * i, 0f);
+            //GameObject bullet = Instantiate(bulletFactory, firePoint.position, 
+            //    Quaternion.Euler(0f, (360 / 36) * i, 0f));
         }
     }
 
@@ -104,8 +118,11 @@ public class bossAttack : MonoBehaviour
     {
        for(int i = 0; i < 2; i++)
         {
-            GameObject bullet = Instantiate(bulletFactory, firePoint.position, 
-                Quaternion.Euler(0f, (360 / 36) * Random.Range(0f, 360f), 0f));
+            var bullet = ObjectPool.getBbullet();
+            bullet.transform.position = firePoint.position;
+            bullet.transform.rotation = Quaternion.Euler(0f, (360 / 36) * Random.Range(0f, 360f), 0f);
+            //GameObject bullet = Instantiate(bulletFactory, firePoint.position, 
+            //    Quaternion.Euler(0f, (360 / 36) * Random.Range(0f, 360f), 0f));
         }
     }
 }

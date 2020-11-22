@@ -12,9 +12,19 @@ public class SpawnManager : MonoBehaviour
     {
         StartCoroutine(EnemySpawn());
     }
+    private void OnEnable()
+    {
+        //StartCoroutine(EnemySpawn());
+    }
     // Update is called once per frame
     void Update()
     {
+        if(GameManager.Instance.IsActive == true && GameManager.Instance.myGameManager.activeSelf == true)
+        {
+            StartCoroutine(EnemySpawn());
+            GameManager.Instance.IsActive = false;
+        }
+
         AirPlaneSpawn();
         BossSpawn();
     }

@@ -39,8 +39,11 @@ public class PlayerFire : MonoBehaviour
             if (AtkButton.Instance.isTouch == true)
             {
 
-                GameObject bullet = Instantiate(bulletFactory);
+                //GameObject bullet = Instantiate(bulletFactory);
+                //bullet.transform.position = firePoint.position;
+                var bullet = ObjectPool.getBullet();
                 bullet.transform.position = firePoint.position;
+                bullet.transform.rotation = Quaternion.identity;
             }
 
             yield return new WaitForSeconds(delay);

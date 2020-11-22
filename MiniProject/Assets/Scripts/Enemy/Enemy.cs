@@ -32,9 +32,6 @@ public class Enemy : MonoBehaviour
         if(other.tag == "Player" || other.tag == "bullet")
         {
             Destroy(gameObject);
-            if (other.tag == "bullet")
-                Destroy(other.gameObject);
-
             GameObject fx = Instantiate(fxEffect);
             fx.transform.position = transform.position;
             ScoreManager.Instance.AddScore(1);

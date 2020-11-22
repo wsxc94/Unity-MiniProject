@@ -14,7 +14,12 @@ public class bullet : MonoBehaviour
     
     void OnBecameInvisible()
     {
-        Destroy(gameObject);
+        ObjectPool.Return_Pbullet(this);
         //gameObject => 이 스크립트가 할당된 게임오브젝트
+    }
+    private void OnTriggerEnter(Collider other)
+    {
+        if(other.tag == "monster")
+        ObjectPool.Return_Pbullet(this);
     }
 }

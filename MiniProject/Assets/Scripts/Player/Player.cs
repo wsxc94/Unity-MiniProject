@@ -1,10 +1,11 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Player : MonoBehaviour
 {
-    
+
     [SerializeField]
     private float speed = 5.0f;
 
@@ -74,6 +75,17 @@ public class Player : MonoBehaviour
                          Mathf.Clamp(movePosition.z, -camHeight + playerHalfHeight, camHeight - playerHalfHeight));
 
         transform.position = movePosition;
+    }
+    private void OnTriggerEnter(Collider other)
+    {
+        if(other.tag == "enemy")
+        {
+           //SceneMgr.Instance.LoadScene("Start");
+           SceneManager.LoadScene("Start");       
+           GameManager.Instance.myGameManager.SetActive(false);
+           GameManager.Instance.IsActive = false;
+        }
+
     }
 
 }

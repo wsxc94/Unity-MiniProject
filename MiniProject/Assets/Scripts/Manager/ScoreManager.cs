@@ -16,11 +16,11 @@ public class ScoreManager : MonoBehaviour
     //}
 
     public Text scoreTxt;           //일반 UI 텍스트
-    public Text highScoreTxt;       //일반 UI 텍스트
+    public static Text highScoreTxt;       //일반 UI 텍스트
     //public TextMeshProUGUI textTxt; //텍스트 메시 프로 텍스트
 
     int score = 0;
-    int highScore = 0;
+    static int highScore = 0;
 
     // Start is called before the first frame update
     void Start()
@@ -28,8 +28,14 @@ public class ScoreManager : MonoBehaviour
         //PlayerPrefs.DeleteAll();
 
         //하이스코어 불러오기
+        //highScore = PlayerPrefs.GetInt("High Score");
+        //highScoreTxt.text = "HighScore : " + highScore;
+    }
+    private void OnEnable()
+    {
         highScore = PlayerPrefs.GetInt("High Score");
         highScoreTxt.text = "HighScore : " + highScore;
+
     }
 
     // Update is called once per frame

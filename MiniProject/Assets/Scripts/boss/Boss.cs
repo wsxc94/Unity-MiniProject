@@ -8,6 +8,7 @@ public class Boss : MonoBehaviour
     enum MOVE_PATTHON { RESPAWN, XZMOVE , CENTER };
 
     public static Boss Instance;
+
     public GameObject effect;
     public int Max_hp = 100;
     public int hp = 100;
@@ -20,7 +21,14 @@ public class Boss : MonoBehaviour
     private bool direction = false;
     private float time = 0f;
 
+    public bool isActive { get; set; }
+
     private MOVE_PATTHON CurrentPatthon;
+
+    private void Awake()
+    {
+        Instance = this;
+    }
     private void Start()
     {
         wayPoints = new ArrayList();
@@ -34,7 +42,6 @@ public class Boss : MonoBehaviour
         CurrentPatthon = MOVE_PATTHON.RESPAWN;
         curPos = new Vector3(0, 5, 18);
         transform.position = curPos;
-        Instance = this;
         hp = Max_hp;
     }
 
@@ -51,6 +58,7 @@ public class Boss : MonoBehaviour
     {
         if (hp <= 0)
         {
+            isActive = false;
             GameObject ef = Instantiate(effect);
             ef.transform.position = transform.position;
             gameObject.SetActive(false);
@@ -63,14 +71,14 @@ public class Boss : MonoBehaviour
     {
         if (other.tag == "bullet")
         {
-            Destroy(other.gameObject);
+            //Destroy(other.gameObject);
             hp--;
             hp_bar.fillAmount = hp * 0.01f;
         }
     }
     void updateUI()
     {
-        hp_bar.fillAmount = (float)(hp / Max_hp);
+        hp_bar.fillAmount = hp / Max_hp;
 
     }
 

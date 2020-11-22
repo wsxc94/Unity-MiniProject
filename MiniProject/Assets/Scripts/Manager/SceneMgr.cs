@@ -9,6 +9,7 @@ public class SceneMgr : MonoBehaviour
     //씬매니져는 시작, 게임, 종료씬 등 모든 씬들을 관리해야 한다
     //또한 씬매니져는 씬이 변경되도 삭제되면 안된다
     public static SceneMgr Instance;
+
     private void Awake()
     {
         //씬매니져가 존재한다면
