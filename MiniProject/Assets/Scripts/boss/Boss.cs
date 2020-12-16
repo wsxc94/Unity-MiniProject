@@ -28,6 +28,7 @@ public class Boss : MonoBehaviour
     private void Awake()
     {
         Instance = this;
+        //ObjectPoolManager.Instance.InitObject("Magicfire2" , 10);
     }
     private void Start()
     {

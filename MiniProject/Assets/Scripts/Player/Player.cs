@@ -78,13 +78,13 @@ public class Player : MonoBehaviour
     }
     private void OnTriggerEnter(Collider other)
     {
-        if(other.tag == "enemy")
-        {
-           //SceneMgr.Instance.LoadScene("Start");
-           SceneManager.LoadScene("Start");       
-           GameManager.Instance.myGameManager.SetActive(false);
-           GameManager.Instance.IsActive = false;
-        }
+        //if(other.tag == "enemy")
+        //{
+        //   //SceneMgr.Instance.LoadScene("Start");
+        //   SceneManager.LoadScene("Start");       
+        //   GameManager.Instance.myGameManager.SetActive(false);
+        //   GameManager.Instance.IsActive = false;
+        //}
 
     }
 

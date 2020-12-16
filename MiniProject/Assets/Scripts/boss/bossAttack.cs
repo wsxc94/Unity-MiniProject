@@ -13,9 +13,9 @@ public class bossAttack : MonoBehaviour
     ATKPATTHON curATK;
     private float time = 0;
     private int rnd = 0;
-
+    GameObject obj;
     int[] count = { 0, 45, 90, 135 };
-
+    [SerializeField]
     private void OnEnable()
     {
         time = 0;
@@ -87,8 +87,9 @@ public class bossAttack : MonoBehaviour
     {
         for (int i = 0; i < count.Length; i++)
         {
-            var bullet = ObjectPool.getBbullet();
-            bullet.transform.position = firePoint.position;
+            var bullet = ObjectPoolManager.Instance.GetObject("Magicfire2");
+           bullet.transform.position = firePoint.position;
+        
             bullet.transform.rotation = Quaternion.Euler(0f, (360 / 36) * count[i], 0f);
            // GameObject bullet = Instantiate(bulletFactory, firePoint.position, Quaternion.Euler(0f, (360 / 36) * count[i], 0f));
         }
@@ -106,7 +107,8 @@ public class bossAttack : MonoBehaviour
     {
         for (int i = 0; i < 36; i++)
         {
-            var bullet = ObjectPool.getBbullet();
+            
+            var bullet = ObjectPoolManager.Instance.GetObject("Magicfire2");
             bullet.transform.position = firePoint.position;
             bullet.transform.rotation = Quaternion.Euler(0f, (360 / 36) * i, 0f);
             //GameObject bullet = Instantiate(bulletFactory, firePoint.position, 
@@ -118,8 +120,9 @@ public class bossAttack : MonoBehaviour
     {
        for(int i = 0; i < 2; i++)
         {
-            var bullet = ObjectPool.getBbullet();
+            var bullet = ObjectPoolManager.Instance.GetObject("Magicfire2");
             bullet.transform.position = firePoint.position;
+
             bullet.transform.rotation = Quaternion.Euler(0f, (360 / 36) * Random.Range(0f, 360f), 0f);
             //GameObject bullet = Instantiate(bulletFactory, firePoint.position, 
             //    Quaternion.Euler(0f, (360 / 36) * Random.Range(0f, 360f), 0f));

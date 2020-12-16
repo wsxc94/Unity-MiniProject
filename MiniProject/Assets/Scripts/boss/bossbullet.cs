@@ -17,12 +17,12 @@ public class bossbullet : MonoBehaviour
         if (transform.position.z > Camera.main.orthographicSize
             || transform.position.z < -Camera.main.orthographicSize
             || transform.position.x > Camera.main.orthographicSize
-            || transform.position.x < -Camera.main.orthographicSize) ObjectPool.Return_Bbullet(this); //Destroy(gameObject);
+            || transform.position.x < -Camera.main.orthographicSize) ObjectPoolManager.Instance.ReturnObject(gameObject); //Destroy(gameObject);
     }
 
     void OnBecameInvisible()
     {
-        ObjectPool.Return_Bbullet(this);
+        //ObjectPool.Return_Bbullet(this);
         //gameObject => 이 스크립트가 할당된 게임오브젝트
     }
 
@@ -31,7 +31,9 @@ public class bossbullet : MonoBehaviour
         if (other.tag == "Player")
         {
             GameObject ef = Instantiate(effect, transform.position, Quaternion.identity);
-            ObjectPool.Return_Bbullet(this);
+            ObjectPoolManager.Instance.ReturnObject(gameObject);
+            //ObjectPool.Return_Bbullet(this);
+
             //Destroy(gameObject);
         }
     }

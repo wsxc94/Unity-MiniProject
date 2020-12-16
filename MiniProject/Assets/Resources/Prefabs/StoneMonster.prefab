@@ -196,7 +196,7 @@ GameObject:
   - component: {fileID: 1436987194629853812}
   - component: {fileID: 8550710038219365005}
   m_Layer: 0
-  m_Name: StoneMonster 1
+  m_Name: StoneMonster
   m_TagString: monster
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -210,7 +210,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6213133979456807202}
   m_LocalRotation: {x: 0, y: -0.7071068, z: -0.7071068, w: 0}
-  m_LocalPosition: {x: 0, y: 0, z: 15}
+  m_LocalPosition: {x: 5.586748, y: 5, z: 15}
   m_LocalScale: {x: 1.5, y: 1.5, z: 1.5}
   m_Children:
   - {fileID: 4478150155929832044}

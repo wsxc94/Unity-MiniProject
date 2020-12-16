@@ -17,13 +17,13 @@ public class Enemy : MonoBehaviour
 
         if(transform.position.z <= -Camera.main.orthographicSize)
         {
-            Destroy(gameObject);
+            ObjectPoolManager.Instance.ReturnObject(gameObject);
         }
     }
 
     void OnBecameInvisible()
     {
-        Destroy(gameObject);
+        ObjectPoolManager.Instance.ReturnObject(gameObject);
         //gameObject => 이 스크립트가 할당된 게임오브젝트
     }
 
@@ -31,7 +31,9 @@ public class Enemy : MonoBehaviour
     {
         if(other.tag == "Player" || other.tag == "bullet")
         {
-            Destroy(gameObject);
+            //Destroy(gameObject);
+            ObjectPoolManager.Instance.ReturnObject(gameObject);
+
             GameObject fx = Instantiate(fxEffect);
             fx.transform.position = transform.position;
             ScoreManager.Instance.AddScore(1);

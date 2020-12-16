@@ -19,6 +19,7 @@ public class ObjectPool : MonoBehaviour
     {
         Instance = this;
         init(10);
+        ObjectPoolManager.Instance.InitObject("StoneMonster", 10);
     }
 
     // Update is called once per frame
@@ -34,10 +35,10 @@ public class ObjectPool : MonoBehaviour
             E_bulletPool.Enqueue(CreateEbullet());
             
         }
-        for (int i = 0; i < cnt*20; i++)
-        {
-            B_bulletPool.Enqueue(CreateBbullet());
-        }
+        //for (int i = 0; i < cnt*20; i++)
+        //{
+        //    B_bulletPool.Enqueue(CreateBbullet());
+        //}
     }
 
     private bullet CreateBullet()

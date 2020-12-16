@@ -8,8 +8,12 @@ public class SpawnManager : MonoBehaviour
     public GameObject enemyFactory = null;
     private float time = 0;
 
+    private void Awake()
+    { 
+    }
     void Start()
     {
+        ObjectPoolManager.Instance.InitObject("StoneMonster", 20);
         StartCoroutine(EnemySpawn());
     }
     private void OnEnable()
@@ -26,7 +30,7 @@ public class SpawnManager : MonoBehaviour
         }
 
         AirPlaneSpawn();
-        BossSpawn();
+        //BossSpawn();
     }
     void BossSpawn()
     {
@@ -65,7 +69,7 @@ public class SpawnManager : MonoBehaviour
     {
         while (true)
         {
-        GameObject enemy = Instantiate(enemyFactory);
+          GameObject enemy = ObjectPoolManager.Instance.GetObject("StoneMonster");
         enemy.transform.position = new Vector3(Random.Range(-7.0f, 7.0f), 5.0f, 15.0f);
         yield return new WaitForSeconds(1.0f);
 
